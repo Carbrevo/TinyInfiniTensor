@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <numeric>
 #include <queue>
-#include <format>
 #include <functional>
 #include "core/graph.h"
 #include "core/runtime.h"
