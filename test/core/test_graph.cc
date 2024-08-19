@@ -37,4 +37,18 @@ namespace infini
         EXPECT_EQ(op->getTransA(), false);
         EXPECT_EQ(op->getTransB(), true);
     }
+
+    TEST(Graph, DataMalloc)
+    {
+        Runtime runtime = NativeCpuRuntimeObj::getInstance();
+        Graph g = make_ref<GraphObj>(runtime);
+        Tensor i1 = g->addTensor({2, 3, 4, 5}, DataType::UInt32);
+        Tensor i2 = g->addTensor({2, 3, 4, 5}, DataType::UInt32);
+        Tensor t1 = g->addTensor({2, 3, 5, 4}, DataType::UInt32);
+        Tensor t2 = g->addTensor({2, 3, 4, 5}, DataType::UInt32);
+        Tensor t3 = g->addTensor({2, 3, 5, 4}, DataType::UInt32);
+        Tensor o = g->addTensor({2, 3, 4, 4}, DataType::UInt32);
+        g->dataMalloc();
+        EXPECT_EQ(true, true);
+    }
 }

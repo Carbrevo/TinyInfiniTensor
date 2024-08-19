@@ -1,5 +1,8 @@
 #include "utils/exception.h"
 
 namespace infini {
-Exception::Exception(const std::string &msg) : std::runtime_error(msg) {}
+    Exception::Exception(const std::string &msg) : std::runtime_error(msg) 
+    {
+        info = msg;
+    }
 } // namespace infini

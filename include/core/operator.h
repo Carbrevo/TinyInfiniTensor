@@ -75,6 +75,7 @@ namespace infini
         void removePredecessors(const Operator &op);
         void removeSuccessors(const Operator &op);
         void replaceInput(Tensor t1, Tensor t2);
+        void removeInput(Tensor t);
     };
 
 #define OP_CLONE(OpObj)                                                \

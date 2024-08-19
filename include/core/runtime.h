@@ -10,6 +10,8 @@ namespace infini
   class GraphObj;
   class RuntimeObj;
   class BlobObj;
+  class OptimizeContextObj;
+  class OptimizerObj;
 
   using Tensor = Ref<TensorObj>;
   using Operator = Ref<OperatorObj>;
@@ -19,6 +21,9 @@ namespace infini
 
   using TensorVec = vector<Tensor>;
   using OpVec = vector<Operator>;
+
+  using OptimizeContext = Ref<OptimizeContextObj>;
+  using Optimizer = Ref<OptimizerObj>;
 
   enum class Device
   {

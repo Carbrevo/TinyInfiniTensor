@@ -40,6 +40,11 @@ namespace infini
         }
     }
 
+    void OperatorObj::removeInput(Tensor t)
+    {
+        inputs.erase(std::find(inputs.cbegin(), inputs.cend(), t));
+    }
+
     bool OperatorObj::checkValid(GraphObj *graph)
     {
         auto optShapes = inferShape();

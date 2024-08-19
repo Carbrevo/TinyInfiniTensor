@@ -1,6 +1,7 @@
 #pragma once
 #include <stdexcept>
 #include <string>
+#include <iostream>
 
 namespace infini {
 
@@ -16,7 +17,10 @@ class Exception : public std::runtime_error {
         return *this;
     }
 
-    const char *what() const noexcept override { return info.c_str(); }
+    const char *what() const noexcept override 
+    {
+        return info.c_str();
+    }
 };
 
 } // namespace infini

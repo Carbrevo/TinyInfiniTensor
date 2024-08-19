@@ -8,6 +8,9 @@ namespace infini
 
     class GraphObj : public Object
     {
+       friend class OptimizeContextObj;
+       friend class OptimizerObj;
+
     protected:
         Runtime runtime;
         TensorVec tensors;
@@ -73,8 +76,14 @@ namespace infini
         template <typename T, typename... Args>
         Ref<T> addOpWithOutputs(Args &&...args)
         {
+            //std::cout << __func__ << " begin" << std::endl;
+            //T back_op {};
+            //Ref<T> op = infini::make_ref<T>(back_op);
+
             Ref<T> op = infini::make_ref<T>(nullptr, std::forward<Args>(args)...);
             addOperatorAndConnect(op);
+
+            //std::cout << __func__ << " eendd" << std::endl;
             return op;
         }
 
@@ -109,6 +118,10 @@ namespace infini
          * @brief Add reverse connections and Op relationship in ctor.
          */
         void addOperatorAndConnect(const Operator &op);
+        void discnctOperatorAndRemove(const Operator &op);
+        void shortcutOperatorLink(const Operator &from, const Operator &to);
+        void eliminateOperNode(const Operator &op);
+        void skimOffTensors();
 
         /**
          * @brief If the nodes is sorted in topological order.

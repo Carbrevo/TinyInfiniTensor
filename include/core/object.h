@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "core/common.h"
 #include "ref.h"
 
@@ -44,7 +45,7 @@ class Fuid : public Uid {
     Fuid(const Fuid &fuid) : Uid(fuid) {}
 };
 
-class Object {
+class Object: public std::enable_shared_from_this<Object>{
   protected:
     Guid guid;
 
