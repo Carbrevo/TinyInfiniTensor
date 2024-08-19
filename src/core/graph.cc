@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <numeric>
 #include <queue>
-#include <format>
 #include <functional>
 #include "core/runtime.h"
 #include "core/optimizer.h"
